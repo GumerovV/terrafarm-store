@@ -1,0 +1,25 @@
+.form {
+    display: grid;
+    margin: 10px auto;
+    padding: 0 20px;
+}
+
+.form input {
+    display: block;
+    margin: 10px 20px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid grey;
+    padding: 5px 10px;
+    outline: none;
+    font-size: large;
+    transition: all 0.5s ease;
+}
+
+
+.form input:focus {
+    border-color: rgb(180, 180, 255);
+}
+
+.form button {
+    margin: 15px auto;
+}
