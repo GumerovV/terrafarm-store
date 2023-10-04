@@ -22,7 +22,7 @@ module.exports = {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
-        bg: '#333',
+        bg: '#3F4045',
         btn: 'rgb(132, 160, 124)',
         gradientTo: 'rgb(35, 35, 35)',
         gradientFrom: 'rgb(19, 20, 21)'
