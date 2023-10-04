@@ -1,8 +1,16 @@
+import React from "react";
+import NavBarItem from "./NavBarItem";
+import { Link } from "react-router-dom";
+
 function NavBar() {
     return (
-        <div className='flex items-center justify-between ml-2 mr-40 text-white whitespace-nowrap uppercase text-[1.3vw]'>
-            <a className='cursor-pointer pr-7 font-extralight hover:text-[#84A07C] transition-colors' href='/'>Наши продукты</a>
-            <a className='cursor-pointer font-extralight hover:text-[#84A07C] transition-colors' href='/'>О компании</a>
+        <div className='hidden md:flex items-center space-x-12 justify-between ml-2 mr-40 text-white whitespace-nowrap uppercase text-[1.3vw] xl:text-[1.2vw]'>
+            <Link to={'/products'}>
+                <NavBarItem text={'Наши продукты'}/>
+            </Link>
+            <Link to={'/company'}>
+                <NavBarItem text={'О компании'}/>
+            </Link>
         </div>
     );
 }
