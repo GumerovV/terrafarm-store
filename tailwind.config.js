@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     screens: {
       xl: '1440px',
-      md: '1024px'
+      md: '1024px',
+      sm: '500px'
     },
     container: {
       padding: {
@@ -24,11 +25,14 @@ module.exports = {
         current: 'currentColor',
         bg: '#3F4045',
         btn: 'rgb(132, 160, 124)',
+        btnBlack: 'rgb(19, 20, 21)',
         gradientTo: 'rgb(35, 35, 35)',
         gradientFrom: 'rgb(19, 20, 21)'
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-text-balance'),
+  ],
 }
 

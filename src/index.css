@@ -19,3 +19,7 @@ code {
 .header-shadow{
   box-shadow: rgba(0, 0, 0, 0.9) 0px 1px 12px;
 }
+
+.btn-shadow{
+  box-shadow: rgba(0, 0, 0, 0.701961) 0px 5px 12px;
+}
