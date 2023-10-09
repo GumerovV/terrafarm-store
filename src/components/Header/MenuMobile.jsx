@@ -13,7 +13,7 @@ function MenuMobile() {
                 : 
             <img src={MenuIconOpen} alt='' className='flex relative md:hidden w-[8vw] cursor-pointer z-30'/> }
         </div>
-        <div className={`absolute right-0 top-0 w-full bg-gradient-to-r from-gradientTo to-gradientFrom z-20 justify-center h-screen transition-all ${isOpen ? 'flex' : 'hidden'}`}>
+        <div className={`absolute right-0 top-0 w-full truncate bg-gradient-to-r from-gradientTo to-gradientFrom z-20 justify-center h-screen transition-all ${isOpen ? 'flex' : 'hidden'}`}>
             <NavBarMobile setIsOpen={setIsOpen}/>
         </div>
         </>
