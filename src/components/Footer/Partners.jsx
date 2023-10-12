@@ -13,7 +13,7 @@ function Partners() {
                     <img src={fsi} alt=""/>
                 </div>
             </div>
-            <div className="text-[3vw] md:text-[1.5vw] text-center">При финансовой поддержке Фонда содействия инновациям и агенства стратегических инициатив</div>  
+            <div className="text-[3vw] md:text-[1.5vw] text-center">ПРИ ПОДДЕРЖКЕ ФОНДА СОДЕЙСТВИЯ ИННОВАЦИЯМ, АГЕНСТВА СТРАТЕГИЧЕСКИХ ИНИЦИАТИВ И ФОНДА СКОЛКОВО</div>  
         </div>
     );
 }

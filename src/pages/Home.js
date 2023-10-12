@@ -45,7 +45,7 @@ function Home() {
               className="w-full h-[50vw] md:h-[30vw]"
               width="700px" 
               height="400px" 
-              src="https://www.youtube.com/embed/3gB47QRUbuM" 
+              src="https://www.youtube.com/embed/XT9x64wDcAU" 
               title="YouTube video player" frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" a
               llowfullscreen="">
