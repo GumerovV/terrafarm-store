@@ -2,6 +2,10 @@ import React from "react";
 import CarouselDefualt from "../components/Carousel/CarouselDefualt";
 import  Button  from "../components/Button";
 
+/*const productItems = {[
+
+]}*/
+
 function ProductDetail() {
     return (
         <>

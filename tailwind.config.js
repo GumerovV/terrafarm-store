@@ -26,6 +26,7 @@ module.exports = {
         current: 'currentColor',
         bg: '#3F4045',
         btn: 'rgb(132, 160, 124)',
+        border: '#84A07C',
         btnBlack: 'rgb(19, 20, 21)',
         gradientTo: 'rgb(35, 35, 35)',
         gradientFrom: 'rgb(19, 20, 21)'
