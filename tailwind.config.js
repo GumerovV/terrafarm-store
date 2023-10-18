@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     screens: {
@@ -25,6 +26,7 @@ module.exports = {
         current: 'currentColor',
         bg: '#3F4045',
         btn: 'rgb(132, 160, 124)',
+        border: '#84A07C',
         btnBlack: 'rgb(19, 20, 21)',
         gradientTo: 'rgb(35, 35, 35)',
         gradientFrom: 'rgb(19, 20, 21)'
@@ -33,6 +35,7 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-text-balance'),
+    require('flowbite/plugin'),
   ],
 }
 
