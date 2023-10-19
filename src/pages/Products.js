@@ -2,7 +2,7 @@ import M1 from "../assets/M1.webp"
 import M2 from "../assets/M2.webp"
 import M3 from "../assets/M3.webp"
 import L1 from "../assets/L1.webp"
-
+import { Routes, Route, Link } from "react-router-dom";
 
 function Products() {
     return (
@@ -17,31 +17,21 @@ function Products() {
             <br/>
             Корпус Эйвы выполнен из березовой слоистой плиты, обработан двухкомпонентной системой масел, для создания безопасной и приятной на ощупь влагостойкой поверхности.
           </div>
-          <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
-            Q-1
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity" src={M1} alt=""></img>
-          </div>
-          <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
-            C-2
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity" src={M2} alt=""></img>
-          </div>
-          <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
-            B-3
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity" src={M3} alt=""></img>
-          </div>
-          <div>
-          </div>
+          <Link to="/product/1">
           <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
             MINI
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity" src={M1} alt=""></img>
+            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={M1} alt=""></img>
           </div>
+          </Link>
+          <Link to="/product/2">
           <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
             DEFAULT
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity" src={M2} alt=""></img>
+            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={M2} alt=""></img>
           </div>
+          </Link>
           <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
             CITY
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity" src={M3} alt=""></img>
+            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={M3} alt=""></img>
           </div>
         </div>
 
@@ -56,15 +46,15 @@ function Products() {
           </div>
           <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
             LITE
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity" src={L1} alt=""></img>
+            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={L1} alt=""></img>
           </div>
           <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
             STANDART
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity" src={L1} alt=""></img>
+            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" href="standartlabs" src={L1} alt=""></img>
           </div>
           <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
             MAX
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity" src={L1} alt=""></img>
+            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={L1} alt=""></img>
           </div>
         </div>
 
@@ -92,7 +82,9 @@ function Products() {
           </div>
         </div>
 
+      
       </>
+      
     );
 }
 
