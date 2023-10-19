@@ -3,6 +3,25 @@ import M2 from "../assets/M2.webp"
 import M3 from "../assets/M3.webp"
 import L1 from "../assets/L1.webp"
 import { Routes, Route, Link } from "react-router-dom";
+import ProductCard from "../components/ProductCard";
+
+const productsEiva = [
+  {
+      "id": 1,
+      "name": "EivaMini",
+      "img": M1
+  },
+  {
+      "id": 2,
+      "name": "EivaStandart",
+      "img": M2
+  },
+  {
+      "id": 3,
+      "name": "EivaCity",
+      "img": M3
+  }
+]
 
 function Products() {
     return (
@@ -13,26 +32,15 @@ function Products() {
           </div>
           <hr className="mx-auto w-4/5 text-center color-white"/>
           <div className="font-extralight text-white text-2xl m-3">
-            Station Eywa - это дизайнерское устройство для автоматического ухода за домашними растениями.
-            <br/>
-            Корпус Эйвы выполнен из березовой слоистой плиты, обработан двухкомпонентной системой масел, для создания безопасной и приятной на ощупь влагостойкой поверхности.
+          Station Eywa - это дизайнерское устройство для автоматического ухода за домашними растениями.
+          Корпус Эйвы выполнен из березовой слоистой плиты, обработан двухкомпонентной системой масел,
+          для создания безопасной и приятной на ощупь влагостойкой поверхности. 
           </div>
-          <Link to="/product/1">
-          <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
-            MINI
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={M1} alt=""></img>
-          </div>
-          </Link>
-          <Link to="/product/2">
-          <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
-            DEFAULT
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={M2} alt=""></img>
-          </div>
-          </Link>
-          <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
-            CITY
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={M3} alt=""></img>
-          </div>
+          {
+          productsEiva.map(product => (
+          <ProductCard item={product}/>
+          ))
+        }
         </div>
 
         <div className="text-white text-center my-1 mx-5 mb-0 ml-5">
