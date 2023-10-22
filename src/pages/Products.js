@@ -1,8 +1,8 @@
-import M1 from "../assets/M1.webp"
-import M2 from "../assets/M2.webp"
-import M3 from "../assets/M3.webp"
+import M1 from "../assets/M1.JPG"
+import C1 from "../assets/С1.jpg"
+import S1 from "../assets/S1.JPG"
+import gidro from "../assets/gidro.jpg" 
 import L1 from "../assets/L1.webp"
-import { Routes, Route, Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 
 const productsEiva = [
@@ -14,12 +14,39 @@ const productsEiva = [
   {
       "id": 2,
       "name": "EivaStandart",
-      "img": M2
+      "img": S1
   },
   {
       "id": 3,
       "name": "EivaCity",
-      "img": M3
+      "img": C1
+  }
+]
+
+const productsLabs =
+[
+  {
+      "id": 1,
+      "name": "LabLite",
+      "img": L1
+  },
+  {
+      "id": 1,
+      "name": "LabStandart",
+      "img": L1
+  },
+  {
+      "id": 1,
+      "name": "LabMax",
+      "img": L1
+  }
+]
+
+const productsGidro = [
+  {
+    "id": 1,
+    "name": "Gidro",
+    "img": gidro
   }
 ]
 
@@ -52,18 +79,11 @@ function Products() {
           Лабораторное оборудование представляет из себя герметичные камеры широкого климатического диапазона. 
           Применяются для создания различных климатических условий, проведения опытов и экспериментов над растениями. 
           </div>
-          <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
-            LITE
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={L1} alt=""></img>
-          </div>
-          <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
-            STANDART
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" href="standartlabs" src={L1} alt=""></img>
-          </div>
-          <div className="font-extralight inline-block relative truncate no-underline mt-3 mr-1.5 mb-0 ml-1.5 p-5">
-            MAX
-            <img className="max-w-full w-96 h-64 duration-0.2 delay-0 transition-opacity rounded-lg" src={L1} alt=""></img>
-          </div>
+          {
+            productsLabs.map(product => (
+            <ProductCard item={product}/>
+            ))
+          }
         </div>
 
         <div className="text-white text-center my-1 mx-5 mb-0 ml-5">
@@ -74,6 +94,11 @@ function Products() {
           <div className="font-extralight text-white text-2xl m-3">
           Гидропонные и аэропонные системы это идеальный вариант для бизнеса, если необходимо максимально быстро и качественно выращивать продукты питания.
           </div>
+          {
+            productsGidro.map(product => (
+            <ProductCard item={product}/>
+            ))
+          }
         </div>
         
         <div>
