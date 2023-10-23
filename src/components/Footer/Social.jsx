@@ -1,24 +1,6 @@
 import React from "react";
-import vk from '../../assets/vk.webp';
-import yt from '../../assets/youtube.webp';
-//import tg from '../../assets/telegram.webp';
+import { socials } from "../../constants";
 
-var socials = [{
-        'id': 1,
-        'name': "VK",
-        'img': vk
-    },
-    {
-        'id': 2,
-        'name': "YouTube",
-        'img': yt
-    },
-    /*{
-        'id': 3,
-        'name': "Telegram",
-        'img': tg
-    }*/
-]
 
 function Social() {
     return (

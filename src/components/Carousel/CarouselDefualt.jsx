@@ -1,30 +1,18 @@
 import React from "react";
-import img from '../../assets/station-eywa.jpg';
 import { Carousel } from 'flowbite-react';
 
-function CarouselDefualt() {
+function CarouselDefualt({images = []}) {
     return (
       <Carousel slide={false}>
-      <img
-        alt="..."
-        src={img}
-      />
-      <img
-        alt="..."
-        src={img}
-      />
-      <img
-        alt="..."
-        src={img}
-      />
-      <img
-        alt="..."
-        src={img}
-      />
-      <img
-        alt="..."
-        src={img}
-      />
+        {
+          images.map((image, index) => (
+            <img
+            alt=""
+            src={image}
+            key={index}
+          />
+          ))
+        }
     </Carousel>
     );
 }
