@@ -1,5 +1,6 @@
 import vk from '../assets/vk.webp';
 import yt from '../assets/youtube.webp';
+import inst from '../assets/inst.webp';
 import ST_MINI from '../assets/station-eywa.jpg';
 
 export const socials = [{
@@ -12,11 +13,11 @@ export const socials = [{
     'name': "YouTube",
     'img': yt
 },
-/*{
+{
     'id': 3,
-    'name': "Telegram",
-    'img': tg
-}*/
+    'name': "Instagram",
+    'img': inst
+}
 ]
 
 

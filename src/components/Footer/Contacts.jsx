@@ -1,8 +1,8 @@
 import React from "react"
 
-function Contacts() {
+function Contacts({scroll}) {
     return (
-        <div>
+        <div ref={scroll}>
             <div className="text-[3.4vw] md:text-[1.4vw] uppercase" name="contacts">Контакты</div>
             <div className="pt-[8%] block text-[3vw] md:text-[1.1vw]">
                 <div>+7-905-995-77-07</div>
