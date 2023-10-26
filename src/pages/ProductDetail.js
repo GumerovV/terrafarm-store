@@ -14,7 +14,7 @@ const products = [
     }
 ]
 
-function ProductDetail(products = []) {
+function ProductDetail() {
     return (
     <div>
         <h1 className="text-center text-white text-[35px]">Станция Эйва Mini</h1>
