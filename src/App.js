@@ -8,22 +8,25 @@ import Products from "./pages/Products";
 import Company from "./pages/Company";
 import NotFound404 from "./pages/NotFound404";
 import ProductDetail from "./pages/ProductDetail";
+import { useRef } from "react";
 
 
 function App() {
+  const contacts = useRef()
+
   return (
     <>
     <Header />
     <Wrapper >
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<Home contacts={contacts}/>}/>
         <Route path="/company" element={<Company />}/>
         <Route path="/products" element={<Products />}/>
         <Route path="/products/:id" element={<ProductDetail />}/>
         <Route path="*" element={<NotFound404 />}/>
       </Routes>
     </Wrapper>
-    <Footer />
+    <Footer scroll={contacts}/>
     </>
   );
 }

@@ -10,7 +10,7 @@ function NavBar({active, setActive}) {
              onClick={() => setActive('Наши продукты')}
              >
                 <NavBarItem text={'Наши продукты'} active={active}/>
-            </Link>
+            </Link> 
             <Link
              to={'/company'}
              onClick={() => setActive('О компании')}
