@@ -67,7 +67,7 @@ function ProductDetail({product = []}) {
                 ))}
             </div>
         </div>
-    </div>
+    </>
     );
 }
 
