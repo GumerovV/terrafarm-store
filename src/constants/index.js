@@ -1,7 +1,28 @@
 import vk from '../assets/vk.webp';
 import yt from '../assets/youtube.webp';
 import inst from '../assets/inst.webp';
-import ST_MINI from '../assets/station-eywa.jpg';
+
+import M1 from "../assets/EivaMini/M1.JPG"
+import M2 from "../assets/EivaMini/M2.JPG"
+import M3 from "../assets/EivaMini/M3.JPG"
+import M4 from "../assets/EivaMini/M4.JPG"
+
+import S1 from "../assets/Eiva/S1.JPG"
+import S2 from "../assets/Eiva/S2.JPG"
+import S3 from "../assets/Eiva/S3.JPG"
+import S4 from "../assets/Eiva/S4.jpg"
+import S5 from "../assets/Eiva/S5.jpg"
+import S6 from "../assets/Eiva/S6.jpg"
+
+import C1 from "../assets/EivaCity/С1.jpg"
+import C2 from "../assets/EivaCity/С2.jpg"
+import C3 from "../assets/EivaCity/С3.jpg"
+import C4 from "../assets/EivaCity/C4.jpg"
+
+import gidro2 from "../assets/Gidro/gidro2.png"
+import gidro3 from "../assets/Gidro/gidro3.png"
+
+
 
 export const socials = [{
     'id': 1,
@@ -41,7 +62,7 @@ export const products = [
                 "items": ["- Температура: 10-30 °C", "- Влажность: 70%"]
             }   
         ],
-        "images": [ST_MINI],
+        "images": [M1, M2, M3, M4],
         "videos": ["https://www.youtube.com/embed/YNstjSvrsPw", "https://www.youtube.com/embed/rUNovkiVOdE"]
     },
     {
@@ -63,6 +84,7 @@ export const products = [
                 "items": ["- Температура: 10-30 °C", "- Влажность: 70%"]
             }   
         ],
+        "images": [S1, S2, S3, S4, S5, S6],
         "videos": ["https://www.youtube.com/embed/YNstjSvrsPw", "https://www.youtube.com/embed/rUNovkiVOdE"]
     },
     {
@@ -84,6 +106,7 @@ export const products = [
                 "items": ["- Температура: 10-30 °C", "- Влажность: 70%"]
             }   
         ],
+        "images": [C1,C2,C3,C4],
         "videos": ["https://www.youtube.com/embed/YNstjSvrsPw", "https://www.youtube.com/embed/rUNovkiVOdE"]
-    }
+    },
 ]

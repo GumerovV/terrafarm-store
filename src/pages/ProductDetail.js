@@ -15,7 +15,7 @@ function ProductDetail({product = []}) {
         <hr className="mx-4 md:mx-10 xl:mx-11 mb-10"></hr>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 px-4 md:mx-10 xl:mx-11">
             <div className="h-[60vw] sm:h-[60vw] md:h-[40vw] xl:h-[30vw] overflow-hidden">
-                    <CarouselDefualt />
+                    <CarouselDefualt images={product.images}/>
             </div>
             <div className="text-xl leading-normal xl:text-2xl text-white xl:leading-10 text-justify font-thin">
                 {product.disc}

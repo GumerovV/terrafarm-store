@@ -1,9 +1,9 @@
-import M1 from "../assets/M1.JPG"
-import C1 from "../assets/С1.jpg"
-import S1 from "../assets/S1.JPG"
-import city2 from "../assets/city2.jpg"
-import gidro from "../assets/gidro.jpg" 
-import aero1 from "../assets/aero1.png" 
+import M1 from "../assets/EivaMini/M1.JPG"
+import S1 from "../assets/Eiva/S1.JPG"
+import city2 from "../assets/EivaCity/city2.jpg"
+import gidro from "../assets/Gidro/gidro.jpg" 
+import aero1 from "../assets/Aero/aero1.png" 
+import control1 from "../assets/Control/control1.png" 
 import L1 from "../assets/L1.webp"
 import ProductCard from "../components/ProductCard";
 
@@ -54,6 +54,11 @@ const productsGidro = [
     "id": 2,
     "name": "Aero",
     "img": aero1
+  },
+  {
+    "id": 3,
+    "name": "Control",
+    "img": control1
   }
 ]
 
