@@ -5,7 +5,13 @@ import infoLine from '../assets/infoLine.webp';
 import modernDesign from '../assets/modernDesign.JPG';
 import stationSmog from '../assets/station_smog.jpg';
 
-function Home() {
+function Home({contacts}) {
+
+  const scrollHandle = (e) => {
+    e.preventDefault()
+    contacts.current.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+  }
+
     return (
       <>
         <div className="flex w-full flex-col items-center px-4 md:px-10 md:flex-row md:items-start md:space-x-10 h-auto text-white mb-10 md:mb-0">
@@ -13,7 +19,7 @@ function Home() {
             <div className="font-medium text-center md:text-left text-[10vw] sm:text-[6vw] md:text-[4vw] leading-[1.2] text-balance whitespace-pre-line">{"Будущее в\n каждый дом"}</div>
               <div className="font-extralight text-center md:text-left text-[5vw] sm:text-[4vw] md:text-[1.3vw] leading-[1.2] mt-[3%] text-balance">Производство интелектуальных декоративных устройств по уходу за растениями по России и СНГ</div>
                 <div className="flex mb-2 mt-[5%] md:mt-[10%] items-center justify-center md:justify-start space-x-5">
-                  <Button text={"Связаться с нами"} color="bg-btnBlack" padding="p-[1%] pl-[4%] pr-[4%]" tSize="text-10xl sm:text-[2.5vw] md:text-[1.3vw]"/>
+                  <Button text={"Связаться с нами"} color="bg-btnBlack" padding="p-[1%] pl-[4%] pr-[4%]" tSize="text-10xl sm:text-[2.5vw] md:text-[1.3vw]" handler={scrollHandle}/>
                   <Button text={"Купить"} tSize="text-10xl sm:text-[2.5vw] md:text-[1.3vw]"/>
                 </div>
           </div>
