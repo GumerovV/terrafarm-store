@@ -18,7 +18,7 @@ function App() {
     <Header />
     <Wrapper >
       <Routes>
-        <Route path="/" element={<Home contacts={contacts}/>}/>
+        <Route path="/" element={<Home contacts={contacts }/>}/>
         <Route path="/company" element={<Company />}/>
         <Route path="/products" element={<Products />}/>
         <Route path="/products/:id" element={<ProductDetail />}/>
