@@ -28,17 +28,17 @@ const productsEiva = [
 const productsLabs =
 [
   {
-      "id": 1,
+      "id": 4,
       "name": "LabLite",
       "img": L1
   },
   {
-      "id": 1,
+      "id": 5,
       "name": "LabStandart",
       "img": L1
   },
   {
-      "id": 1,
+      "id": 6,
       "name": "LabMax",
       "img": L1
   }
@@ -46,17 +46,17 @@ const productsLabs =
 
 const productsGidro = [
   {
-    "id": 1,
+    "id": 7,
     "name": "Gidro",
     "img": gidro
   },
   {
-    "id": 2,
+    "id": 8,
     "name": "Aero",
     "img": aero1
   },
   {
-    "id": 3,
+    "id": 9,
     "name": "Control",
     "img": control1
   }
@@ -67,7 +67,7 @@ function Products() {
       <>
         <div className="text-white text-center my-1 mx-5 mb-0 ml-5">
           <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5">
-            Станция Эйва
+            СТАНЦИЯ ЭЙВА
           </div>
           <hr className="mx-auto w-4/5 text-center color-white"/>
           <div className="font-extralight text-white text-2xl m-3">
@@ -83,7 +83,7 @@ function Products() {
         </div>
 
         <div className="text-white text-center my-1 mx-5 mb-0 ml-5">
-          <div className = "text-center text-uppercase font-extralight pt-1 pl-5 pr-5 text-white text-4xl p-5">
+          <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5">
           ЛАБОРАТОРНОЕ ОБОРУДОВАНИЕ
           </div>
           <hr className="mx-auto w-4/5 text-center color-white"/>
@@ -99,7 +99,7 @@ function Products() {
         </div>
 
         <div className="text-white text-center my-1 mx-5 mb-0 ml-5">
-          <div className = "text-center text-uppercase font-extralight pt-1 pl-5 pr-5 text-white text-4xl p-5">
+          <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5">
           ГИДРОПОННЫЕ И АЭРОПОННЫЕ СИСТЕМЫ
           </div>
         <hr className="mx-auto w-4/5 text-center color-white"/>
@@ -118,7 +118,7 @@ function Products() {
         </div>
 
         <div className="text-white text-center my-1 mx-5 mb-0 ml-5">
-          <div className = "text-center text-uppercase font-extralight pt-1 pl-5 pr-5 text-white text-4xl p-5">
+          <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5">
           АВТОМАТИЗАЦИЯ АПК
           </div>
         <hr className="mx-auto w-4/5 text-center color-white"/>
