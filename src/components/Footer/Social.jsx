@@ -10,11 +10,11 @@ function Social() {
                      {
                     socials.map(item => (
                         <>
-                        <div className="flex items-center mb-2" key={item.id}>
+                        <div className={`${item.id === 3 ? '' : 'mb-2'} flex items-center`} key={item.id}>
                         <img src={item.img} className="" alt="" width="25px"/>
                         <a className="ml-[3%] text-white text-[3vw] md:text-[1.1vw] cursor-pointer hover:text-btn transition-colors" href="https://vk.com/terrafarm">{item.name}</a>
                         </div>
-                        {item.id === 3 && <p className="block font-thin text-[2.5vw] md:text-[1vw] text-red-600">*Запрещено на территории РФ</p>}
+                        {item.id === 3 && <p className="block pl-8 font-thin text-[2.5vw] sm:text-[2vw] md:text-[1vw] xl:text-[.9vw]">(Запрещено на территории РФ)</p>}
                         </>
                     ))
                 }
