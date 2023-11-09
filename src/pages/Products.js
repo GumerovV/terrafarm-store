@@ -10,17 +10,17 @@ import ProductCard from "../components/ProductCard";
 const productsEiva = [
   {
       "id": 1,
-      "name": "EivaMini",
+      "name": "Eywa Mini",
       "img": M1
   },
   {
       "id": 2,
-      "name": "EivaStandart",
+      "name": "Eywa Standart",
       "img": S1
   },
   {
       "id": 3,
-      "name": "EivaCity",
+      "name": "Eywa City",
       "img": city2
   }
 ]
@@ -88,7 +88,7 @@ function Products() {
           </div>
           <hr className="mx-auto w-4/5 text-center color-white"/>
           <div className="font-extralight text-white text-2xl m-3">
-          Лабораторное оборудование представляет из себя герметичные камеры широкого климатического диапазона. 
+          Лабораторное оборудование представляет из себя камеры широкого климатического диапазона. 
           Применяются для создания различных климатических условий, проведения опытов и экспериментов над растениями. 
           </div>
           {

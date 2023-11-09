@@ -20,6 +20,15 @@ import C2 from "../assets/EivaCity/С2.jpg"
 import C3 from "../assets/EivaCity/С3.jpg"
 import C4 from "../assets/EivaCity/C4.jpg"
 
+import aero1 from "../assets/Aero/aero1.png"
+import aero2 from "../assets/Aero/aero2.png"
+import aero3 from "../assets/Aero/aero3.png"
+import aero4 from "../assets/Aero/aero4.png"
+
+import control1 from "../assets/Control/control1.png"
+import control2 from "../assets/Control/control2.png"
+import control3 from "../assets/Control/control3.png"
+
 import gidro2 from "../assets/Gidro/gidro2.png"
 import gidro3 from "../assets/Gidro/gidro3.png"
 
@@ -247,13 +256,13 @@ export const products = [
                 "items": ["- Температура: 10-30 °C", "- Влажность: 70%"]
             }   
         ],
-        "images": [gidro2, gidro3],
+        "images": [aero1, aero2, aero3, aero4],
         "videos": ["https://www.youtube.com/embed/YNstjSvrsPw", "https://www.youtube.com/embed/rUNovkiVOdE"]
     },
     {
         "id": 9,
         "name": "control",
-        "disc": "labs lite имеет кубический вид - это идеальная форма, четкая геометрия и строгость линий. Выполнена в лаконичном стиле и подходящей цветовой палитре, что позволяет вписать станцию в любой интерьер. Станция контролирует влажность воздуха вокруг растения, при помощи системы генерации тумана, датчиков влажности и температуры воздуха. А также поддерживает определенное количество влаги в почве посредством работы датчика влажности почвы и системы полива. За счет съемной конструкции этого датчика и съемного внутреннего горшка, с растением удобно проводить различные манипуляции в случае необходимости.",
+        "disc": "control имеет кубический вид - это идеальная форма, четкая геометрия и строгость линий. Выполнена в лаконичном стиле и подходящей цветовой палитре, что позволяет вписать станцию в любой интерьер. Станция контролирует влажность воздуха вокруг растения, при помощи системы генерации тумана, датчиков влажности и температуры воздуха. А также поддерживает определенное количество влаги в почве посредством работы датчика влажности почвы и системы полива. За счет съемной конструкции этого датчика и съемного внутреннего горшка, с растением удобно проводить различные манипуляции в случае необходимости.",
         "characteristic": [
             {
                 "name": "Функционал",
@@ -269,7 +278,7 @@ export const products = [
                 "items": ["- Температура: 10-30 °C", "- Влажность: 70%"]
             }   
         ],
-        "images": [gidro2, gidro3],
+        "images": [control3, control1, control2],
         "videos": ["https://www.youtube.com/embed/YNstjSvrsPw", "https://www.youtube.com/embed/rUNovkiVOdE"]
     },
 ]
