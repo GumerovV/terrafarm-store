@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import CarouselDefualt from "../components/Carousel/CarouselDefualt";
 import  Button  from "../components/Button";
 import { products } from "../constants";
+import BasketModal from "../components/Modal/BasketModal";
 
 function ProductDetail({product = []}) {
     const {id} = useParams()
-    console.log(id)
     product = products[id-1]
+
+    const [showModel, setShowModel] = useState(false)
+
+    const modalClickHandle = (e) => {
+        e.preventDefault()
+        setShowModel(true)
+  }
 
     return (
         <>
@@ -24,7 +31,13 @@ function ProductDetail({product = []}) {
                {product.disc}
 
                 <div className="flex justify-center mt-10">
-                    <Button text="Купить сейчас" color="bg-btnBlack" padding="p-[3%] pl-[4%] pr-[4%]" tSize="text-10xl sm:text-[2.5vw] md:text-[1.3vw]"/>
+                    <Button
+                    text="Купить сейчас"
+                    color="bg-btnBlack"
+                    padding="p-[3%] pl-[4%] pr-[4%]"
+                    tSize="text-10xl sm:text-[2.5vw] md:text-[1.3vw]"
+                    handler={modalClickHandle}
+                    />
                 </div>
           </div>
         </div>
@@ -64,6 +77,7 @@ function ProductDetail({product = []}) {
                 ))}
             </div>
         </div>
+        <BasketModal show={showModel} onHide={() => setShowModel(false)} />
         </>
     );
 }
