@@ -6,6 +6,8 @@ import aero1 from "../assets/Aero/aero1.png"
 import control1 from "../assets/Control/control1.png" 
 import L1 from "../assets/L1.webp"
 import ProductCard from "../components/ProductCard";
+import TriggerComponent from "../components/TriggerComponent";
+import HoverComponent from "../components/HoverComponent";
 
 const productsEiva = [
   {
