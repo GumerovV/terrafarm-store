@@ -12,7 +12,8 @@ function BasketModal({show, onHide}) {
             header:{
                 close:{
                     base: 'ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-500 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white',
-                    icon: 'h-5 w-5',                }
+                    icon: 'h-5 w-5',
+                }
             }
         }
     }
