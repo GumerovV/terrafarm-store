@@ -10,18 +10,21 @@ import ProductCard from "../components/ProductCard";
 const productsEiva = [
   {
       "id": 1,
-      "name": "EivaMini",
-      "img": M1
+      "name": "Eywa Mini",
+      "img": M1,
+      "text": "Eywa Mini topwargwergerw gesrthgser thsrtehrtshsrtyh tsryhtsryh"
   },
   {
       "id": 2,
-      "name": "EivaStandart",
-      "img": S1
+      "name": "Eywa Standart",
+      "img": S1,
+      "text": "Eywa Mini top"
   },
   {
       "id": 3,
-      "name": "EivaCity",
-      "img": city2
+      "name": "Eywa City",
+      "img": city2,
+      "text": "Eywa Mini top"
   }
 ]
 
@@ -30,12 +33,14 @@ const productsLabs =
   {
       "id": 4,
       "name": "LabLite",
-      "img": L1
+      "img": L1,
+      "text": "Лабораторное оборудование представляет собой камеру широкого климатического диапазона.Применяются для создания различных климатических условий, проведения опытов и экспериментов над растениями."
   },
   {
       "id": 5,
       "name": "LabStandart",
-      "img": L1
+      "img": L1,
+      
   },
   {
       "id": 6,
@@ -70,7 +75,7 @@ function Products() {
             СТАНЦИЯ ЭЙВА
           </div>
           <hr className="mx-auto w-4/5 text-center color-white"/>
-          <div className="font-extralight text-white text-2xl m-3">
+          <div className="font-extralight text-white text-2xl m-3 text-justify md:text-center">
           Station Eywa - это дизайнерское устройство для автоматического ухода за домашними растениями.
           Корпус Эйвы выполнен из березовой слоистой плиты, обработан двухкомпонентной системой масел,
           для создания безопасной и приятной на ощупь влагостойкой поверхности. 
@@ -87,8 +92,8 @@ function Products() {
           ЛАБОРАТОРНОЕ ОБОРУДОВАНИЕ
           </div>
           <hr className="mx-auto w-4/5 text-center color-white"/>
-          <div className="font-extralight text-white text-2xl m-3">
-          Лабораторное оборудование представляет из себя герметичные камеры широкого климатического диапазона. 
+          <div className="font-extralight text-white text-2xl m-3 text-justify md:text-center">
+          Лабораторное оборудование представляет из себя камеры широкого климатического диапазона. 
           Применяются для создания различных климатических условий, проведения опытов и экспериментов над растениями. 
           </div>
           {
@@ -103,7 +108,7 @@ function Products() {
           ГИДРОПОННЫЕ И АЭРОПОННЫЕ СИСТЕМЫ
           </div>
         <hr className="mx-auto w-4/5 text-center color-white"/>
-          <div className="font-extralight text-white text-2xl m-3">
+          <div className="font-extralight text-white text-2xl m-3 text-justify md:text-center">
           Гидропонные и аэропонные системы это идеальный вариант для бизнеса, если необходимо максимально быстро и качественно выращивать продукты питания.
           </div>
           {
@@ -122,7 +127,7 @@ function Products() {
           АВТОМАТИЗАЦИЯ АПК
           </div>
         <hr className="mx-auto w-4/5 text-center color-white"/>
-          <div className="font-extralight text-white text-2xl m-3">
+          <div className="font-extralight text-white text-2xl m-3 text-justify md:text-center">
           Компания TerraFarm также работает в сфере автоматизации готовых решений. Мы готовы взяться за автоматизацию Ваших АПК под ключ.
           </div>
         </div>
