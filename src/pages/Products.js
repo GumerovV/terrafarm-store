@@ -88,7 +88,7 @@ function Products() {
         </div>
 
         <div className="text-white text-center my-1 mx-5 mb-0 ml-5">
-          <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5">
+          <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5 mt-10">
           ЛАБОРАТОРНОЕ ОБОРУДОВАНИЕ
           </div>
           <hr className="mx-auto w-4/5 text-center color-white"/>
@@ -104,7 +104,7 @@ function Products() {
         </div>
 
         <div className="text-white text-center my-1 mx-5 mb-0 ml-5">
-          <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5">
+          <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5 mt-10">
           ГИДРОПОННЫЕ И АЭРОПОННЫЕ СИСТЕМЫ
           </div>
         <hr className="mx-auto w-4/5 text-center color-white"/>
@@ -123,7 +123,7 @@ function Products() {
         </div>
 
         <div className="text-white text-center my-1 mx-5 mb-0 ml-5">
-          <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5">
+          <div className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5 mt-10">
           АВТОМАТИЗАЦИЯ АПК
           </div>
         <hr className="mx-auto w-4/5 text-center color-white"/>
