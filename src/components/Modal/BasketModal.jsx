@@ -17,10 +17,14 @@ function BasketModal({show, onHide}) {
             }
         }
     }
+
     const close = (e) => {
         e.preventDefault()
         onHide()
     }
+
+    const hrefClass = 'text-btn hover:opacity-70 transition-all'
+
     return ( 
         <Flowbite theme={{ theme: customTheme }}>
             <Modal show={show} onClose={onHide} content="base" he>
@@ -31,9 +35,9 @@ function BasketModal({show, onHide}) {
                 В данный момент все заказы обрабатываются следующим образом:
                 </p>
                 <ul className="a whitespace-pre space-y-4">
-                    <li>1.   Можно написать на почту...</li>
-                    <li>2.   Можно написать в группу вконтакте...</li>
-                    <li>3.   Связаться по телефону ...</li>
+                    <li>1.   Можно написать на почту: <a className={hrefClass} href="mailto:terrafarmgroup@gmail.com">terrafarmgroup@gmail.com</a></li>
+                    <li>2.   Можно написать в группу вконтакте: <a className={hrefClass} href="https://vk.com/terrafarm">vk.com/terrafarm</a></li>
+                    <li>3.   Связаться по телефону: <a className={`${hrefClass} whitespace-pre`} href="tel:+79528818437">+7 (952) 881-84-37</a></li>
                 </ul>
                 <p className="text-center">Спасибо за понимание!</p>
             </div>
