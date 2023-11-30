@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
 import PotImage from "../assets/station-eywa.jpg";
-import infoLine from '../assets/infoLine.webp';
+import infoLine from '../assets/InfoLine1.svg';
 import modernDesign from '../assets/modernDesign.JPG';
 import stationSmog from '../assets/station_smog.jpg';
 import BasketModal from "../components/Modal/BasketModal";
