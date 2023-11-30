@@ -6,10 +6,11 @@ function CarouselDefualt({images = []}) {
       <Carousel slide={false}>
         {
           images.map((image, index) => (
-            <img
+            <img 
             alt=""
             src={image}
             key={index}
+            className="relative h-full w-full"
           />
           ))
         }
