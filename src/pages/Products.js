@@ -1,4 +1,4 @@
-import M1 from "../assets/EivaMini/M1.JPG"
+import EywaMini_full_stack_dub from "../assets/EywaMini/dub/full_stack.webp"
 import S1 from "../assets/Eiva/S1.JPG"
 import city2 from "../assets/EivaCity/city2.jpg"
 import gidro from "../assets/Gidro/gidro.jpg" 
@@ -11,7 +11,7 @@ const productsEiva = [
   {
       "id": 1,
       "name": "Eywa Mini",
-      "img": M1,
+      "img": EywaMini_full_stack_dub,
       "text": "Eywa Mini topwargwergerw gesrthgser thsrtehrtshsrtyh tsryhtsryh"
   },
   {
