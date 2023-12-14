@@ -32,6 +32,10 @@ import control3 from "../assets/Control/control3.png"
 import gidro2 from "../assets/Gidro/gidro2.png"
 import gidro3 from "../assets/Gidro/gidro3.png"
 
+import DUB from "../assets/material_DUB.jpg"
+import CHERRY from "../assets/material_CHERRY.jpg"
+import VENGE from "../assets/material_VENGE.jpg"
+
 
 
 //Persons
@@ -102,7 +106,12 @@ export const products = [
                 "items": ["- Температура: 10-30 °C", "- Влажность: 70%"]
             }   
         ],
-        "images": [M1, M2, M3, M4],
+        "images": {
+            materials: [
+                {name: 'Дуб', materialImg: DUB, img: [M1, M2, M3, M4]},
+                {name: 'Вишня', materialImg: CHERRY, img: [M4]},
+                {name: 'Венге', materialImg: VENGE, img: [M3, M4]},]
+        },
         "videos": ["https://www.youtube.com/embed/YNstjSvrsPw", "https://www.youtube.com/embed/rUNovkiVOdE"]
     },
     {
