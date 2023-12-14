@@ -3,10 +3,45 @@ import vk from '../assets/vk.webp';
 import yt from '../assets/youtube.webp';
 import inst from '../assets/inst.webp';
 
-import M1 from "../assets/EivaMini/M1.JPG"
-import M2 from "../assets/EivaMini/M2.JPG"
-import M3 from "../assets/EivaMini/M3.JPG"
-import M4 from "../assets/EivaMini/M4.JPG"
+//EywaMini dub
+import EywaMini_full_stack_dub from "../assets/EywaMini/dub/full_stack.webp"
+import EywaMini_2_dub from "../assets/EywaMini/dub/2.webp"
+import EywaMini_3_dub from "../assets/EywaMini/dub/3.webp"
+import EywaMini_4_dub from "../assets/EywaMini/dub/4.webp"
+import EywaMini_5_dub from "../assets/EywaMini/dub/5.webp"
+import EywaMini_6_dub from "../assets/EywaMini/dub/6.webp"
+import EywaMini_7_dub from "../assets/EywaMini/dub/7.webp"
+import EywaMini_8_dub from "../assets/EywaMini/dub/8.webp"
+import EywaMini_9_dub from "../assets/EywaMini/dub/9.webp"
+import EywaMini_10_dub from "../assets/EywaMini/dub/10.webp"
+import EywaMini_instruction_dub from "../assets/EywaMini/dub/instruction.webp"
+
+
+//EywaMini cherry
+import EywaMini_full_stack_cherry from "../assets/EywaMini/cherry/full_stack.webp"
+import EywaMini_2_cherry from "../assets/EywaMini/cherry/2.webp"
+import EywaMini_3_cherry from "../assets/EywaMini/cherry/3.webp"
+import EywaMini_4_cherry from "../assets/EywaMini/cherry/4.webp"
+import EywaMini_5_cherry from "../assets/EywaMini/cherry/5.webp"
+import EywaMini_6_cherry from "../assets/EywaMini/cherry/6.webp"
+import EywaMini_7_cherry from "../assets/EywaMini/cherry/7.webp"
+import EywaMini_8_cherry from "../assets/EywaMini/cherry/8.webp"
+import EywaMini_9_cherry from "../assets/EywaMini/cherry/9.webp"
+import EywaMini_instruction_cherry from "../assets/EywaMini/cherry/intstruction.webp"
+
+
+//EywaMini venge
+import EywaMini_full_stack_venge from "../assets/EywaMini/venge/full_stack.webp"
+import EywaMini_1_venge from "../assets/EywaMini/venge/1.webp"
+import EywaMini_2_venge from "../assets/EywaMini/venge/2.webp"
+import EywaMini_3_venge from "../assets/EywaMini/venge/3.webp"
+import EywaMini_4_venge from "../assets/EywaMini/venge/4.webp"
+import EywaMini_5_venge from "../assets/EywaMini/venge/5.webp"
+import EywaMini_6_venge from "../assets/EywaMini/venge/6.webp"
+import EywaMini_7_venge from "../assets/EywaMini/venge/7.webp"
+import EywaMini_instruction_venge from "../assets/EywaMini/venge/instruction.webp"
+
+
 
 import S1 from "../assets/Eiva/S1.JPG"
 import S2 from "../assets/Eiva/S2.JPG"
@@ -31,6 +66,10 @@ import control3 from "../assets/Control/control3.png"
 
 import gidro2 from "../assets/Gidro/gidro2.png"
 import gidro3 from "../assets/Gidro/gidro3.png"
+
+import DUB from "../assets/material_DUB.jpg"
+import CHERRY from "../assets/material_CHERRY.jpg"
+import VENGE from "../assets/material_VENGE.jpg"
 
 
 
@@ -102,7 +141,12 @@ export const products = [
                 "items": ["- Температура: 10-30 °C", "- Влажность: 70%"]
             }   
         ],
-        "images": [M1, M2, M3, M4],
+        "images": {
+            materials: [
+                {name: 'Дуб', materialImg: DUB, img: [EywaMini_full_stack_dub, EywaMini_2_dub, EywaMini_3_dub, EywaMini_4_dub, EywaMini_5_dub, EywaMini_6_dub, EywaMini_7_dub, EywaMini_8_dub, EywaMini_9_dub, EywaMini_10_dub, EywaMini_instruction_dub]},
+                {name: 'Вишня', materialImg: CHERRY, img: [EywaMini_full_stack_cherry, EywaMini_2_cherry, EywaMini_3_cherry, EywaMini_4_cherry, EywaMini_5_cherry, EywaMini_6_cherry, EywaMini_7_cherry, EywaMini_8_cherry, EywaMini_9_cherry, EywaMini_instruction_cherry]},
+                {name: 'Венге', materialImg: VENGE, img: [EywaMini_full_stack_venge, EywaMini_1_venge, EywaMini_2_venge, EywaMini_3_venge, EywaMini_4_venge, EywaMini_5_venge, EywaMini_6_venge, EywaMini_7_venge, EywaMini_instruction_venge]},]
+        },
         "videos": ["https://www.youtube.com/embed/YNstjSvrsPw", "https://www.youtube.com/embed/rUNovkiVOdE"]
     },
     {

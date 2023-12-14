@@ -10,6 +10,7 @@ function ProductDetail({product = []}) {
     product = products[id-1]
 
     const [showModel, setShowModel] = useState(false)
+    const [selectedMaterial, setSelectedMaterial] = useState({name: 'Дуб', images: product.images.materials[0].img})
 
     const modalClickHandle = (e) => {
         e.preventDefault()
@@ -22,15 +23,29 @@ function ProductDetail({product = []}) {
         <hr className="mx-4 md:mx-10 xl:mx-11 mb-10"></hr>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 px-4 md:mx-10 xl:mx-11">
             <div className="h-[60vw] sm:h-[60vw] md:h-[40vw] xl:h-[30vw] overflow-hidden">
-                    <CarouselDefualt images={product.images}/>
+                    <CarouselDefualt images={selectedMaterial.images}/>
             </div>
             <div className="text-xl leading-normal xl:text-2xl text-white xl:leading-10 text-justify font-thin">
                 {product.disc}
+
+                <div className="flex mt-10 space-x-4 h-auto">
+                    <h3>Материал:</h3>
+                    {product.images.materials.map((material, index) => 
+                        <div className="p-1 cursor-pointer transition-all" key={index}
+                        onClick={() => setSelectedMaterial({name: material.name, images: material.img})}>
+                            <div className="flex flex-col justify-center items-center">
+                                <img className={`${selectedMaterial.name === material.name ? 'border-4' : ''} border-btn rounded-sm w-[40px] h-[40px] hover:scale-110 transition-all`} 
+                                     src={material.materialImg} alt=""/>
+                                <p className={`${selectedMaterial.name === material.name ? 'text-btn' : ''} flex justify-center mt-1 text-sm`}>{material.name}</p>
+                            </div>
+                        </div>
+                    )}
+                </div>
                 <div className="flex justify-center mt-10">
                     <Button
                     text="Купить сейчас"
                     color="bg-btnBlack"
-                    padding="p-[3%] pl-[4%] pr-[4%]"
+                    padding="p-4"
                     tSize="text-10xl sm:text-[2.5vw] md:text-[1.3vw]"
                     handler={modalClickHandle}
                     />
@@ -46,7 +61,7 @@ function ProductDetail({product = []}) {
                         product.characteristic.map((item, index) => (
                             <div className="mb-20" key={index}>
                                 <h2 className="text-3xl mb-4 text-center md:text-start">{item.name}</h2>
-                                <ul className="pl-4">
+                                <ul className="text-left md:pl-4 space-y-2">
                                 {
                                     item.items.map((feature, index) => (
                                         <li key={index}>{feature}</li>
@@ -66,8 +81,7 @@ function ProductDetail({product = []}) {
                         height="400px" 
                         src={video}
                         title="YouTube video player" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" a
-                        llowfullscreen=""
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""
                         key={index}>
                     </iframe>
                 ))}
