@@ -168,7 +168,13 @@ export const products = [
                 "items": ["- Температура: 10-30 °C", "- Влажность: 70%"]
             }   
         ],
-        "images": [S1, S2, S3, S4, S5, S6],
+        //"images": [S1, S2, S3, S4, S5, S6],
+        "images": {
+            materials: [
+                {name: 'Дуб', materialImg: DUB, img: [EywaMini_full_stack_dub, EywaMini_2_dub, EywaMini_3_dub, EywaMini_4_dub, EywaMini_5_dub, EywaMini_6_dub, EywaMini_7_dub, EywaMini_8_dub, EywaMini_9_dub, EywaMini_10_dub, EywaMini_instruction_dub]},
+                {name: 'Вишня', materialImg: CHERRY, img: [EywaMini_full_stack_cherry, EywaMini_2_cherry, EywaMini_3_cherry, EywaMini_4_cherry, EywaMini_5_cherry, EywaMini_6_cherry, EywaMini_7_cherry, EywaMini_8_cherry, EywaMini_9_cherry, EywaMini_instruction_cherry]},
+                {name: 'Венге', materialImg: VENGE, img: [EywaMini_full_stack_venge, EywaMini_1_venge, EywaMini_2_venge, EywaMini_3_venge, EywaMini_4_venge, EywaMini_5_venge, EywaMini_6_venge, EywaMini_7_venge, EywaMini_instruction_venge]},]
+        },
         "videos": ["https://www.youtube.com/embed/YNstjSvrsPw", "https://www.youtube.com/embed/rUNovkiVOdE"]
     },
     {

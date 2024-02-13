@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from 'react-router-dom';
 import CarouselDefualt from "../components/Carousel/CarouselDefualt";
 import  Button  from "../components/Button";
 import { products } from "../constants";
 import BasketModal from "../components/Modal/BasketModal";
+import { Context } from "..";
+import { observer } from "mobx-react-lite";
 
-function ProductDetail({product = []}) {
+const ProductDetail = observer(({product = []}) => {
     const {id} = useParams()
     product = products[id-1]
 
+    const {basket} = useContext(Context)
     const [showModel, setShowModel] = useState(false)
     const [selectedMaterial, setSelectedMaterial] = useState({name: 'Дуб', images: product.images.materials[0].img})
 
     const modalClickHandle = (e) => {
         e.preventDefault()
         setShowModel(true)
-  }
+    }
+
+    const basketBtnHandler = (e) => {
+        e.preventDefault()
+        basket.setDevices({...product, id: product.id + selectedMaterial.name, selectedMaterial: selectedMaterial.name, img: selectedMaterial.images[0]})
+    }
 
     return (
         <>
@@ -41,7 +49,7 @@ function ProductDetail({product = []}) {
                         </div>
                     )}
                 </div>
-                <div className="flex justify-center mt-10">
+                <div className="flex flex-col md:flex-row justify-center mt-10 gap-4">
                     <Button
                     text="Купить сейчас"
                     color="bg-btnBlack"
@@ -49,6 +57,24 @@ function ProductDetail({product = []}) {
                     tSize="text-10xl sm:text-[2.5vw] md:text-[1.3vw]"
                     handler={modalClickHandle}
                     />
+                    {
+                        basket.devices.some(item => item.id === product.id + selectedMaterial.name) ?
+                        <Button
+                            text="В корзине"
+                            color="bg-btnBlack opacity-80"
+                            padding="p-4"
+                            tSize="text-10xl sm:text-[2.5vw] md:text-[1.3vw]"
+                            handler={(e) => e.preventDefault()}
+                        />
+                        :
+                        <Button
+                            text="В корзину"
+                            color="bg-btnBlack"
+                            padding="p-4"
+                            tSize="text-10xl sm:text-[2.5vw] md:text-[1.3vw]"
+                            handler={basketBtnHandler}
+                    />
+                    }
                 </div>
             </div>
         </div>
@@ -90,6 +116,6 @@ function ProductDetail({product = []}) {
         <BasketModal show={showModel} onHide={() => setShowModel(false)} />
         </>
     );
-}
+})
 
 export default ProductDetail;
