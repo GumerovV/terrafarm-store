@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavBarItem from "./NavBarItem";
 import { Link } from "react-router-dom";
+import { NavData } from "./navbar.data";
+import { SlBasket } from 'react-icons/sl'
+import { Context } from "../..";
 
 function NavBarMobile({ setIsOpen }) {
+    const {basket} = useContext(Context)
+    const count = basket.getTotalCount()
+
     return (
         <div className='flex items-center justify-center flex-col space-y-10 text-white whitespace-nowrap uppercase text-[5vw]'>
-            <Link to={'/products'} onClick={() => setIsOpen(false)}>
-                <NavBarItem text={'Наши продукты'}/>
-            </Link>
-            <Link to={'/company'} onClick={() => setIsOpen(false)}>
-                <NavBarItem text={'О компании'}/>
-            </Link>
+            {
+                NavData.map(item =>  
+                    <Link to={item.link} onClick={() => setIsOpen(false)}>
+                        <NavBarItem text={item.text} key={item.link} />
+                    </Link>
+                )
+            }
+            <div className='flex items-center justify-center gap-8'>
+                <div className="relative">
+                        <SlBasket className='cursor-pointer' color='white' size={35}/>
+                        {count !== 0 && <span className='absolute -top-1 -right-5 w-7 h-7 text-center font-medium text-xl text-white bg-btn rounded-[100%]'>{count}</span>}
+                </div>
+                <Link to='/basket' onClick={() => setIsOpen(false)}>
+                    <NavBarItem text={'Корзина'} key={'/basket'} />
+                </Link>
+            </div>
         </div>
     );
 }
