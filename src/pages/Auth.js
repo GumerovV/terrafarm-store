@@ -8,6 +8,7 @@ import { validEmail } from "../utils/validEmail";
 import { login, register } from "../api/userAPI";
 import { getBasket } from "../api/basketAPI";
 import { useNavigate } from 'react-router-dom';
+import { errorCatch } from "../utils/api";
 
 const Auth = observer(() => {
     const {user, basket} = useContext(Context)
@@ -33,7 +34,7 @@ const Auth = observer(() => {
             }
             catch(e){
                 console.log(e)
-                setError(e.response.data.message)
+                setError(errorCatch(e))
             }
         }
         else{
