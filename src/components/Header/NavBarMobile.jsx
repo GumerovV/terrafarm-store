@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { NavData } from "./navbar.data";
 import { SlBasket } from 'react-icons/sl'
 import { Context } from "../..";
+import { observer } from "mobx-react-lite";
 
-function NavBarMobile({ setIsOpen }) {
-    const {basket} = useContext(Context)
+const NavBarMobile = observer(({ setIsOpen }) => {
+    const {user, basket} = useContext(Context)
     const count = basket.getTotalCount()
 
     return (
@@ -17,6 +18,12 @@ function NavBarMobile({ setIsOpen }) {
                         <NavBarItem text={item.text} key={item.link} />
                     </Link>
                 )
+            }
+            {
+                user.isAuth ? 
+                    <Link to='/profile' onClick={() => setIsOpen(false)}><NavBarItem text='Профиль'/></Link>
+                    :
+                    <Link to='/auth' onClick={() => setIsOpen(false)}><NavBarItem text='Войти'/></Link>
             }
             <div className='flex items-center justify-center gap-8'>
                 <div className="relative">
@@ -29,6 +36,6 @@ function NavBarMobile({ setIsOpen }) {
             </div>
         </div>
     );
-}
+})
 
 export default NavBarMobile;
