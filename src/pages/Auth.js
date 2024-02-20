@@ -47,7 +47,7 @@ const Auth = observer(() => {
                 navigate('/')
             }
             catch(e){
-                setError(e.response.data.message)
+                setError(errorCatch(e))
             }
         }
     }
