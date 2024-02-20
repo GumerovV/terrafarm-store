@@ -6,6 +6,10 @@ export default class BasketStore{
         makeAutoObservable(this)
     }
 
+    loadBasket = (devices) => {
+      this._devices = devices
+    }
+
     setDevices = (item) => {
         let exists = false;
 
