@@ -15,6 +15,7 @@ import { check } from "./api/userAPI";
 import { observer } from "mobx-react-lite";
 import Auth from "./pages/Auth";
 import { getBasket } from "./api/basketAPI";
+import Profile from "./pages/Profile";
 
 
 const App = observer(() => {
@@ -55,6 +56,7 @@ const App = observer(() => {
         <Route path="/products/:id" element={<ProductDetail />}/>
         <Route path="/basket" element={<Basket />}/>
         <Route path="/auth" element={<Auth />}/>
+        <Route path="/profile" element={<Profile />}/>
         <Route path="*" element={<NotFound404 />}/>
       </Routes>
     </Wrapper>
