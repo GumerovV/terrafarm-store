@@ -53,7 +53,7 @@ const Auth = observer(() => {
     }
 
     return (
-        <div className="h-screen flex justify-center items-center">
+        <div className="h-[80vh] flex justify-center items-center">
             <form className="bg-zinc-800 rounded-xl shadow-xl w-96 p-1 py-4" onSubmit={handleSubmit(onSubmit)}>
                     <h1 className="text-center text-white font-medium text-2xl mb-2">{isLogin ? 'Вход' : 'Регистрация'}</h1>
                     <hr className="mx-auto w-4/5 text-center color-white mb-10"/>

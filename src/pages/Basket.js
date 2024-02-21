@@ -1,9 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '..';
 import BasketItem from '../components/BasketItem';
 import { NavLink } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { Button, Flowbite } from 'flowbite-react'
+import { getBasket } from '../api/basketAPI';
+import ClassicSpinner from '../ui/spinner/Spinner';
+import { toJS } from 'mobx';
 
 const customTheme = {
     button: {
@@ -14,12 +17,27 @@ const customTheme = {
 }
 
 const Basket = observer(() => {
-    const {basket} = useContext(Context)
+    const {user, basket} = useContext(Context)
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        if(user.isAuth){
+            basket.loadBasket([])
+            getBasket().then(data => basket.loadBasket(data.products)).finally(() => setIsLoading(false))
+        }
+        else{
+            setIsLoading(false)
+        }
+    }, [])
+
+    if(isLoading) return <ClassicSpinner />
+
+    console.log(toJS(basket.devices))
 
     return (  
         <div className="px-4 md:mx-10 xl:mx-11">
             <h1 className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5">Корзина</h1>
-            <hr className="mx-auto w-4/5 text-center color-white mb-10"/>
+            <hr className="mx-auto text-center color-white mb-10"/>
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
                 {basket.devices.length ?
                     <div className='md:col-span-2 felx flex-cols items-center justify-center space-y-4'>

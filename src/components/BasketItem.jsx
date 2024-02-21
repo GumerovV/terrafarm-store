@@ -3,20 +3,24 @@ import { observer } from "mobx-react-lite";
 import { IoTrashOutline } from 'react-icons/io5'
 import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai'
 import { Context } from "..";
+import { addItemCount, deleteFromBasket, lessItemCount } from "../api/basketAPI";
 
 const BasketItem = observer(({ device }) => {
     const {basket} = useContext(Context)
     
-    const deleteDevice = () => {
-       basket.deleteDevice(device.id)
+    const deleteDevice = async() => {
+        basket.deleteDevice(device.id)
+        await deleteFromBasket(device.id)
     }
 
-    const addDevice = () => {
-       basket.plusDevice(device.id)
+    const addDevice = async() => {
+        basket.plusDevice(device.id)
+        await addItemCount(device.id)
     }
 
-    const minusDevice = () => {
-       basket.lessDevice(device.id)
+    const minusDevice = async() => {
+        basket.lessDevice(device.id)
+        lessItemCount(device.id)
     }
 
     return (
@@ -34,8 +38,8 @@ const BasketItem = observer(({ device }) => {
                     <img src={device.img} alt=""></img>
                 </div>
                 <div className="flex flex-col space-y-2 items-center justify-center sm:items-start">
-                    <h2 className="md:text-3xl text-white">{device.name}</h2>
-                    <span className="text-white md:text-lg font-thin">Материал: {device.selectedMaterial}</span>
+                    <h2 className="md:text-3xl text-white">{device.product.name}</h2>
+                    <span className="text-white md:text-lg font-thin">Цвет: {device.color}</span>
                 </div>
                 <div className="flex items-center justify-center sm:ml-auto space-x-4 text-white text-xl">
                     <AiFillMinusCircle 

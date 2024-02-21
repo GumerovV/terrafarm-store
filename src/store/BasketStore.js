@@ -13,8 +13,8 @@ export default class BasketStore{
     setDevices = (item) => {
         let exists = false;
 
-        exists = this._devices.some(device => device.id === item.id);
-    
+        exists = this._devices.some(device => device.product.id === item.product.id && device.color === item.color);
+        
         if (exists) {
           this._devices = this._devices.map(device =>
             device.id === item.id ? { ...device, count: device.count + 1 } : device
