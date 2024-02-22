@@ -13,12 +13,14 @@ import { errorCatch } from "../utils/api";
 const Auth = observer(() => {
     const {user, basket} = useContext(Context)
     const [isLogin, setIsLogin] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
     const navigate = useNavigate()
 
     const { register: registerForm, handleSubmit, formState: {errors} } = useForm({mode: 'onChange'})
 
     const onSubmit = async(data) => {
+        setIsLoading(true)
         if (isLogin){
             try{
                 const res = await login(data.email, data.password)
@@ -50,6 +52,7 @@ const Auth = observer(() => {
                 setError(errorCatch(e))
             }
         }
+        setIsLoading(false)
     }
 
     return (
@@ -84,7 +87,7 @@ const Auth = observer(() => {
                     </div>
                     <hr className="mx-auto w-4/5 text-center color-white mb-4"/>
                     <div className="flex justify-center">
-                        <Button type='submit' className={`py-2 text-xl ${!isLogin ? 'px-14' : 'px-24'}`}>{isLogin ? 'Войти' : 'Зарегистрироваться'}</Button>
+                        <Button type='submit' isLoading={isLoading} className={`py-2 text-xl ${!isLogin ? 'px-14' : 'px-24'}`}>{isLogin ? 'Войти' : 'Зарегистрироваться'}</Button>
                     </div>
                     <p className="text-center text-red-700 font-light text-[0.85rem]">{error}</p>
             </form>

@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx"
+import { makeAutoObservable, toJS } from "mobx"
 
 export default class BasketStore{
     constructor(){
@@ -14,7 +14,7 @@ export default class BasketStore{
         let exists = false;
 
         exists = this._devices.some(device => device.product.id === item.product.id && device.color === item.color);
-        
+
         if (exists) {
           this._devices = this._devices.map(device =>
             device.id === item.id ? { ...device, count: device.count + 1 } : device
@@ -41,8 +41,9 @@ export default class BasketStore{
     }
 
     getTotalPrice = () => {
-        return this._devices.reduce((item, acc) => {
-          return acc + item.count * item.price
+      console.log(toJS(this._devices))
+        return this._devices.reduce((acc, item) => {
+          return acc + item.count * item.product.price
         }, 0)
     }
 

@@ -35,7 +35,7 @@ const BasketItem = observer(({ device }) => {
             </div>
             <div className="h-full flex flex-col justify-center items-center sm:flex-row mx-10">
                 <div className="w-[200px] h-[200px] sm:w-[100px] sm:h-[100px] overflow-hidden sm:mr-10 select-none">
-                    <img src={device.img} alt=""></img>
+                    <img src={`${process.env.REACT_APP_URL}/media/${device.product.name}/${device.color}.webp`} alt=""></img>
                 </div>
                 <div className="flex flex-col space-y-2 items-center justify-center sm:items-start">
                     <h2 className="md:text-3xl text-white">{device.product.name}</h2>

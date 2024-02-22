@@ -55,7 +55,7 @@ const Basket = observer(() => {
                     <p className="text-xs mt-10">Итого:</p>
                     <div className="flex justify-between font-bold text-sm">
                         <p>Количество товаров: {basket.getTotalCount()}</p>
-                        <p>{basket.getTotalCount().toLocaleString('ru', {style: 'currency', currency: 'RUB'})}</p>
+                        <p>{basket.getTotalPrice().toLocaleString('ru', {style: 'currency', currency: 'RUB'})}</p>
                     </div>
                     <Flowbite theme={{theme: customTheme}}>
                         <Button

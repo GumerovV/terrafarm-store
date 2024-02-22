@@ -26,3 +26,18 @@ export const check = async () => {
     localStorage.setItem('token', response.data.accessToken)
     return jwtDecode(response.data.accessToken)
 }
+
+export const getProfile = async() => {
+    const response = await $authHost.get('/user')
+    return response.data
+}
+
+export const updateProfile = async(dto) => {
+    try{
+        const response = await $authHost.patch('/user', dto)
+        return response.data
+    }
+    catch(e){
+        console.log(e)
+    }
+}
