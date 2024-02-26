@@ -21,7 +21,10 @@ const NavBarMobile = observer(({ setIsOpen }) => {
             }
             {
                 user.isAuth ? 
-                    <Link to='/profile' onClick={() => setIsOpen(false)}><NavBarItem text='Профиль'/></Link>
+                    user.role === 'USER' ?
+                        <Link to='/profile' onClick={() => setIsOpen(false)}><NavBarItem text='Профиль'/></Link>
+                        :
+                        <Link to='/profile' onClick={() => setIsOpen(false)}><NavBarItem text='Административная панель'/></Link>
                     :
                     <Link to='/auth' onClick={() => setIsOpen(false)}><NavBarItem text='Войти'/></Link>
             }

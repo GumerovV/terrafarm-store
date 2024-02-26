@@ -6,6 +6,7 @@ import { products } from "../constants";
 import BasketModal from "../components/Modal/BasketModal";
 import { Context } from "..";
 import { observer } from "mobx-react-lite";
+import { addToBasket } from "../api/basketAPI";
 
 const ProductDetail = observer(({product = []}) => {
     const {id} = useParams()
@@ -20,9 +21,10 @@ const ProductDetail = observer(({product = []}) => {
         setShowModel(true)
     }
 
-    const basketBtnHandler = (e) => {
+    const basketBtnHandler = async(e) => {
         e.preventDefault()
-        basket.setDevices({...product, id: product.id + selectedMaterial.name, selectedMaterial: selectedMaterial.name, img: selectedMaterial.images[0]})
+        basket.setDevices({product: {...product}, id: product.id + selectedMaterial.name, color: selectedMaterial.name, img: selectedMaterial.images[0]})
+        await addToBasket(product.id, {color: selectedMaterial.name})
     }
 
     return (
@@ -37,7 +39,7 @@ const ProductDetail = observer(({product = []}) => {
                 {product.disc}
 
                 <div className="flex mt-10 space-x-4 h-auto">
-                    <h3>Материал:</h3>
+                    <h3>Цвет:</h3>
                     {product.images.materials.map((material, index) => 
                         <div className="p-1 cursor-pointer transition-all" key={index}
                         onClick={() => setSelectedMaterial({name: material.name, images: material.img})}>
@@ -58,7 +60,7 @@ const ProductDetail = observer(({product = []}) => {
                     handler={modalClickHandle}
                     />
                     {
-                        basket.devices.some(item => item.id === product.id + selectedMaterial.name) ?
+                        basket.devices.some(item => item.product.id === product.id && item.color === selectedMaterial.name) ?
                         <Button
                             text="В корзине"
                             color="bg-btnBlack opacity-80"

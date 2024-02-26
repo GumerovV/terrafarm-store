@@ -16,6 +16,7 @@ const Profile = observer(() => {
         user.setIsAuth(false)
         basket.loadBasket([])
         localStorage.setItem('token', null)
+        setProfile({})
     }
     const handleFillProfileClick = () => {
         setShowForm(!showForm);
