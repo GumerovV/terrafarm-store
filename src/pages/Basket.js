@@ -1,29 +1,36 @@
-import React, { useContext } from 'react';
+import React, {useContext, useState} from 'react';
 import { Context } from '..';
 import BasketItem from '../components/BasketItem';
 import { NavLink } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
+import BasketModal from "../components/Modal/BasketModalOrder";
 import { Button, Flowbite } from 'flowbite-react'
 
 const customTheme = {
     button: {
         color: {
-          primary: 'bg-btn transition-all',
+            primary: 'bg-btn transition-all',
         },
     }
 }
 
+
 const Basket = observer(() => {
     const {basket} = useContext(Context)
+    const [showModel, setShowModel] = useState(false)
+    const modalClickHandle = (e) => {
+        e.preventDefault()
+        setShowModel(true)
+    }
 
-    return (  
+    return (
         <div className="px-4 md:mx-10 xl:mx-11">
             <h1 className = "text-center text-uppercase pt-1 pl-5 pr-5 text-white text-4xl p-5">Корзина</h1>
             <hr className="mx-auto w-4/5 text-center color-white mb-10"/>
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10">
                 {basket.devices.length ?
                     <div className='md:col-span-2 felx flex-cols items-center justify-center space-y-4'>
-                        {basket.devices.map(device => <BasketItem device={device} key={device.id}/>)}     
+                        {basket.devices.map(device => <BasketItem device={device} key={device.id}/>)}
                     </div>
                     :
                     <div className='md:col-span-2 flex flex-col items-center justify-center'>
@@ -42,14 +49,17 @@ const Basket = observer(() => {
                     <Flowbite theme={{theme: customTheme}}>
                         <Button
                             color='primary'
+                            onClick={modalClickHandle}
                             disabled={basket.getTotalCount() === 0}
                             className={`bg-btn w-full mt-10 py-4 text-xl font-bold ${basket.getTotalCount() !== 0 ? 'hover:opacity-90' : ''} transition-all`}
+
                         >
-                                Перейти к оформлению
+                            Перейти к оформлению
                         </Button>
                     </Flowbite>
                 </div>
             </div>
+            <BasketModal show={showModel} onHide={() => setShowModel(false)} />
         </div>
     );
 })

@@ -31,6 +31,15 @@ module.exports = {
         gradientTo: 'rgb(35, 35, 35)',
         gradientFrom: 'rgb(19, 20, 21)'
       },
+      animation: {
+        fade: 'fade 0.75s ease-in-out',
+      },
+      keyframes: {
+        fade: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+      },
     },
   },
   plugins: [
