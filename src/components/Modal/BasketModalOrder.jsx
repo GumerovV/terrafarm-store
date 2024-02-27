@@ -1,15 +1,28 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Modal, Flowbite} from "flowbite-react"
 import {useForm} from "react-hook-form";
 import FieldPhone from "../../ui/form-field/FieldPhone";
 import Field from "../../ui/form-field/Field";
 import Button from "../../ui/button/Button";
+import {errorCatch} from "../../utils/api";
+import {Context} from "../../index";
+import {create} from "axios";
+import {createNoAuthOrder, createOrder} from "../../api/orderAPI";
+import {toJS} from "mobx";
+import {getProfile} from "../../api/userAPI";
+import {observer} from "mobx-react-lite";
 
-function BasketModal({show, onHide}) {
+const BasketModal = observer(({show, onHide})=>{
+    const {user, basket} = useContext(Context)
+    useEffect(() => {
+        getProfile().then((data)=> user.setInfo(data))
+    }, []);
+
+    const [error, setError] = useState('')
     const customTheme = {
         modal: {
             content: {
-                base: 'flex items-center h-full w-full p-4 md:h-auto overflow-y-auto',
+                base: 'flex items-center h-full p-4 md:h-auto overflow-y-auto',
                 inner: 'relative rounded-lg bg-white shadow dark:bg-gray-700 flex flex-col max-h-[70vh]',
             },
             header: {
@@ -24,8 +37,31 @@ function BasketModal({show, onHide}) {
     const close = (e) => {
         e.preventDefault()
         onHide()
+
     }
-    function handleSubmitForm(data) { console.log(data); }
+    async function handleSubmitForm(data)
+    {
+        try {
+            data = {...data, number: data.number.replace(/[-()]/g, '')}
+            const devices = basket.devices.map((item) =>({
+                id: item.product.id,
+                count: item.count,
+                color: item.color,
+            }))
+            user.isAuth?
+            await createOrder(data)
+            :
+            await createNoAuthOrder(devices,data)
+            setError('')
+            basket.loadBasket([])
+            onHide()
+
+        }
+        catch (e){
+            console.log(data)
+            setError(errorCatch(e))
+        }
+    }
 
     const hrefClass = 'text-btn hover:opacity-70 transition-all'
     const { register: profileForm, handleSubmit, formState: {errors} } = useForm({mode: 'onChange'})
@@ -44,64 +80,80 @@ function BasketModal({show, onHide}) {
                         })}
                         error={errors.name}
                         type='text'
-                        placeholder='Имя'/>
+                        placeholder='Имя'
+                        defaultValue={user.info.name}
+                    />
                     <Field
                         {...profileForm('surname', {
                             required: 'Фамилия обязательна!',
                         })}
                         error={errors.surname}
                         type='text'
-                        placeholder='Фамилия'/>
+                        placeholder='Фамилия'
+                        defaultValue={user.info.surname}
+                    />
                     <Field
                         {...profileForm('country', {
                             required: 'Страна обязательна!',
                         })}
                         error={errors.country}
                         type='text'
-                        placeholder='Страна'/>
+                        placeholder='Страна'
+                        defaultValue={user.info.country}
+                    />
                     <Field
                         {...profileForm('city', {
                             required: 'Город/Село обязателено!',
                         })}
                         error={errors.city}
                         type='text'
-                        placeholder='Город/Село'/>
+                        placeholder='Город/Село'
+                        defaultValue={user.info.city}
+                    />
                     <Field
                         {...profileForm('street', {
                             required: 'Улица обязательна!',
                         })}
                         error={errors.street}
                         type='text'
-                        placeholder='Улица'/>
+                        placeholder='Улица'
+                        defaultValue={user.info.street}
+                    />
                     <Field
-                        {...profileForm('house', {
+                        {...profileForm('building', {
                             required: 'Дом обязателен!',
                         })}
-                        error={errors.house}
+                        error={errors.building}
                         type='text'
-                        placeholder='Дом'/>
+                        placeholder='Дом'
+                        defaultValue={user.info.building}
+                    />
                     <Field
                         {...profileForm('apartment', {
                             required: 'Квартира обязательна!',
                         })}
                         error={errors.apartment}
                         type='text'
-                        placeholder='Квартира'/>
+                        placeholder='Квартира'
+                        defaultValue={user.info.apartment}
+                    />
                     <FieldPhone
-                        {...profileForm('Phone', {
+                        {...profileForm('number', {
                             required: 'Телефон обязателен!',
                         })}
-                        error={errors.Phone}
+                        error={errors.number}
                         type='text'
                         placeholder='Телефон'
+                        defaultValue={user.info.number ? user.info.number.slice(2) : ''}
                     />
 
                 </form>
             </div>
-        </Modal.Body> <Modal.Footer className="w-full flex justify-center bg-bg">
+        </Modal.Body> <Modal.Footer className="w-full flex flex-col justify-center bg-bg">
             <Button type="submit" form="ModalForm" className="px-7" handler={close}>Оформить</Button>
+            <p className="text-center text-red-700 font-light text-[0.85rem] md:text-lg">{error}</p>
         </Modal.Footer> </Modal> </Flowbite>
     );
-}
+})
 
 export default BasketModal;

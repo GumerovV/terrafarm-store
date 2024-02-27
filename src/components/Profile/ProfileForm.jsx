@@ -1,85 +1,119 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Field from "../../ui/form-field/Field";
 import {useForm} from "react-hook-form";
 import Button from "../../ui/button/Button";
 import FieldPhone from "../../ui/form-field/FieldPhone";
+import {Context} from "../../index";
+import {getProfile, updateProfile} from "../../api/userAPI";
+import {data} from "autoprefixer";
+import {observer} from "mobx-react-lite";
+import ClassicSpinner from "../../ui/spinner/Spinner";
+import {errorCatch} from "../../utils/api";
 
 
 
-function ProfileForm() {
-    function handleSubmitForm(data) { console.log(data); }
+const ProfileForm = observer(() => {
+    const {user} = useContext(Context)
+    const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState('')
+    useEffect(() => {
+        getProfile().then((data)=>user.setInfo(data)).finally(() => setIsLoading(false))
+    }, []);
+
+    async function handleSubmitForm(data)
+    {
+        try {
+            data = {...data, number: data.number.replace(/[-()]/g, '')}
+            await updateProfile(data)
+            setError('')
+            console.log(data)
+        }
+        catch (e){
+            console.log(data)
+            setError(errorCatch(e))
+        }
+    }
+
     const { register: profileForm, handleSubmit, formState: {errors} } = useForm({mode: 'onChange'})
-
+    if(isLoading) return <ClassicSpinner />
     return (
         <div className="md:pr-64">
             <form onSubmit={handleSubmit(handleSubmitForm)}>
                 <div className="grid md:grid-cols-3 md:gap-20 ">
                     <Field
                         {...profileForm('name', {
-                            required: 'Имя обязателено!',
                         })}
                         error={errors.name}
                         type='text'
-                        placeholder='Имя'/>
+                        placeholder='Имя'
+                        defaultValue={user.info.name}
+                    />
                     <Field
                         {...profileForm('surname', {
-                            required: 'Фамилия обязательна!',
                         })}
                         error={errors.surname}
                         type='text'
-                        placeholder='Фамилия'/>
+                        placeholder='Фамилия'
+                        defaultValue={user.info.surname}
+                    />
                     <Field
                         {...profileForm('country', {
-                            required: 'Страна обязательна!',
                         })}
                         error={errors.country}
                         type='text'
-                        placeholder='Страна'/>
+                        placeholder='Страна'
+                        defaultValue={user.info.country}
+                    />
                     <Field
                         {...profileForm('city', {
-                            required: 'Город/Село обязателено!',
                         })}
                         error={errors.city}
                         type='text'
-                        placeholder='Город/Село'/>
+                        placeholder='Город/Село'
+                        defaultValue={user.info.city}
+                    />
                     <Field
                         {...profileForm('street', {
-                            required: 'Улица обязательна!',
                         })}
                         error={errors.street}
                         type='text'
-                        placeholder='Улица'/>
+                        placeholder='Улица'
+                        defaultValue={user.info.street}
+                    />
                     <Field
-                        {...profileForm('house', {
-                            required: 'Дом обязателен!',
+                        {...profileForm('building', {
                         })}
-                        error={errors.house}
+                        error={errors.building}
                         type='text'
-                        placeholder='Дом'/>
+                        placeholder='Дом'
+                        defaultValue={user.info.building}
+                    />
                     <Field
                         {...profileForm('apartment', {
-                            required: 'Квартира обязательна!',
                         })}
                         error={errors.apartment}
                         type='text'
-                        placeholder='Квартира'/>
+                        placeholder='Квартира'
+                        defaultValue={user.info.apartment}
+                    />
                     <FieldPhone
-                        {...profileForm('Phone', {
-                            required: 'Телефон обязателен!',
+                        {...profileForm('number', {
                         })}
-                        error={errors.Phone}
+                        error={errors.number}
                         type='text'
                         placeholder='Телефон'
+                        defaultValue={ user.info.number.slice(2)}
                     />
                 </div>
-                <div className="flex items-center justify-center md:justify-start md:text-2xl mt-10">
+                <div className="flex flex-col items-center justify-center md:justify-start md:text-2xl mt-10">
                     <Button type='submit' className="md:px-4">
                         Сохранить
                     </Button>
+                    <p className="text-center text-red-700 font-light text-[0.85rem] md:text-lg">{error}</p>
                 </div>
             </form>
         </div>
     );
-}
+})
 
 export default ProfileForm;

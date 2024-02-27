@@ -33,11 +33,8 @@ export const getProfile = async() => {
 }
 
 export const updateProfile = async(dto) => {
-    try{
+
         const response = await $authHost.patch('/user', dto)
         return response.data
-    }
-    catch(e){
-        console.log(e)
-    }
+
 }

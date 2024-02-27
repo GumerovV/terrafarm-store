@@ -21,6 +21,7 @@ const customTheme = {
 const Basket = observer(() => {
     const {user, basket} = useContext(Context)
     const [isLoading, setIsLoading] = useState(true)
+    const [showModel, setShowModel] = useState(false)
 
     useEffect(() => {
         if(user.isAuth){
@@ -34,7 +35,7 @@ const Basket = observer(() => {
 
     if(isLoading) return <ClassicSpinner />
 
-    const [showModel, setShowModel] = useState(false)
+
     const modalClickHandle = (e) => {
         e.preventDefault()
         setShowModel(true)

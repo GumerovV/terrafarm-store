@@ -41,7 +41,6 @@ export default class BasketStore{
     }
 
     getTotalPrice = () => {
-      console.log(toJS(this._devices))
         return this._devices.reduce((acc, item) => {
           return acc + item.count * item.product.price
         }, 0)

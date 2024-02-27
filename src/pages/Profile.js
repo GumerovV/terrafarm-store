@@ -16,7 +16,6 @@ const Profile = observer(() => {
         user.setIsAuth(false)
         basket.loadBasket([])
         localStorage.setItem('token', null)
-        setProfile({})
     }
     const handleFillProfileClick = () => {
         setShowForm(!showForm);
@@ -46,7 +45,12 @@ const Profile = observer(() => {
                         <button className={`${showOrder ? `text-btn`:``} mt - 3 uppercase cursor-pointer border-none bg-none no-underline text-2xl hover:text-btn transition-color duration-300`}
                                 onClick={handleFillOrderClick}
                         >
-                            Мои заказы
+                            {user.role==="USER"?
+                                "Мои заказы"
+                                :
+                                "Заказы"
+                            }
+
                         </button>
                     </div>
                     <div>

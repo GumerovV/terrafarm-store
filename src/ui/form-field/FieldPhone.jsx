@@ -1,9 +1,13 @@
 import { forwardRef, useState } from 'react'
 import InputMask from 'react-input-mask';
 
-const FieldPhone = forwardRef(({ error, type = 'text', style, onChange,onBlur, ...rest }, ref) => {
+const FieldPhone = forwardRef(({ error, type = 'text', style, onChange,onBlur,defaultValue, ...rest }, ref) => {
     const [isIncomplete, setIsIncomplete] = useState(false);
-
+    const [phone, setPhone] = useState(defaultValue || '');
+    const handleChange = (event) => {
+        setPhone(event.target.value);
+        onChange(event);
+    }
 
     const handleBlur = (event) => {
         if (event.target.value.includes('_')) {
@@ -18,7 +22,7 @@ const FieldPhone = forwardRef(({ error, type = 'text', style, onChange,onBlur, .
 
     return (
         <div className='relative mb-6 block' style={style}>
-            <InputMask mask="+7-(999)-999-99-99" maskChar="_" onChange={onChange} onBlur={handleBlur}>
+            <InputMask mask="+7-(999)-999-99-99" maskChar="_" onChange={handleChange} onBlur={handleBlur} value={phone}>
                 {() => (
                     <input className='w-full text-white placeholder-white/30 border-0 bg-transparent border-white border-b-[1px] outline-none focus:ring-0 focus:border-btn transition-color duration-300' type={type} ref={ref} {...rest} />
                 )}
